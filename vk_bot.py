@@ -16,7 +16,7 @@ logger = logging.getLogger('telegram_logger')
 def dialogflow_conversation(event, vk_api):
 
     event_txt = detect_intent_texts_vk(os.getenv('DIALOG_FLOW_PROJECT_ID'),
-                                       os.getenv('TG_CHAT_ID'),
+                                       os.getenv('SESSION_ID'),
                                        event.text,
                                        os.getenv('LANGUAGE_CODE')
                                        )

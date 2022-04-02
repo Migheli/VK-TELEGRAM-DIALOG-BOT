@@ -20,7 +20,7 @@ LOGGING_CONFIG = {
             'class': 'handlers.TelegramLogsHandler',
             'formatter': 'default_formatter',
             'token': os.getenv('TG_BOT_TOKEN'),
-            'chat_id': os.getenv('TG_USER_ID')
+            'chat_id': os.getenv('SESSION_ID')
         }
     },
 
