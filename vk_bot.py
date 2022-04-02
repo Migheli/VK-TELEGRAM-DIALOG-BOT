@@ -8,20 +8,6 @@ import logging.config
 from intents_detecters import detect_intent_texts_vk
 from loggers import LOGGING_CONFIG
 
-import sys
-
-
-logging.config.dictConfig(LOGGING_CONFIG)
-logger = logging.getLogger('telegram_logger')
-
-root = logging.getLogger()
-root.setLevel(logging.DEBUG)
-
-handler = logging.StreamHandler(sys.stdout)
-handler.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-root.addHandler(handler)
 
 
 logger1 = logging.getLogger('database')
