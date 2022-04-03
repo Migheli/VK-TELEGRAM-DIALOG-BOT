@@ -42,7 +42,7 @@ def main():
             updater.idle()
 
         except Exception as err:
-            logger.error('Бот Telegram упал со следующей ошибкой:')
+            logger.error('Бот в Telegram упал со следующей ошибкой:')
             logger.exception(err)
 
 

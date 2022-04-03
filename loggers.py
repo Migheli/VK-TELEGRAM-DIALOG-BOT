@@ -7,10 +7,9 @@ LOGGING_CONFIG = {
 
     'formatters': {
         'default_formatter': {
-            'format': '[%(levelname)s:%(asctime)s] %(message)s'
+            'format': '[%(name)s:%(levelname)s:%(asctime)s] %(message)s'
         },
     },
-
     'handlers': {
         'stream_handler': {
             'class': 'logging.StreamHandler',
@@ -21,7 +20,7 @@ LOGGING_CONFIG = {
             'formatter': 'default_formatter',
             'token': os.getenv('TG_BOT_TOKEN'),
             'chat_id': os.getenv('SESSION_ID')
-        }
+        },
     },
 
     'loggers': {
@@ -35,5 +34,11 @@ LOGGING_CONFIG = {
             'level': 'DEBUG',
             'propagate': True
         }
+    },
+    'root': {
+        'handlers': ['stream_handler'],
+        'level': 'DEBUG',
+        'disable_existing_loggers': False,
     }
 }
+

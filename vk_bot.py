@@ -9,8 +9,9 @@ from intents_detecters import detect_intent_texts_vk
 from loggers import LOGGING_CONFIG
 
 
+logging.config.dictConfig(LOGGING_CONFIG)
+logger = logging.getLogger('telegram_logger')
 
-logger1 = logging.getLogger('database')
 
 def dialogflow_conversation(event, vk_api):
 
@@ -42,7 +43,7 @@ def main():
                     dialogflow_conversation(event, vk_api)
 
         except Exception as err:
-            logger.error('Бот Вконтакте со следующей ошибкой:')
+            logger.error('Бот Вконтакте упал со следующей ошибкой:')
             logger.exception(err)
 
 
