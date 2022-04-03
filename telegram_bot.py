@@ -4,7 +4,7 @@ import os
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext, Filters, MessageHandler, Updater
 import logging.config
-from loggers import LOGGING_CONFIG
+from log_settings import LOGGING_CONFIG
 from intents_detecters import detect_intent_texts_tg
 
 

@@ -1,5 +1,5 @@
 from google.cloud import dialogflow
-from loggers import LOGGING_CONFIG
+from log_settings import LOGGING_CONFIG
 import logging.config
 
 logging.config.dictConfig(LOGGING_CONFIG)

@@ -6,7 +6,7 @@ import vk_api as vk
 from vk_api.longpoll import VkLongPoll, VkEventType
 import logging.config
 from intents_detecters import detect_intent_texts_vk
-from loggers import LOGGING_CONFIG
+from log_settings import LOGGING_CONFIG
 
 
 logging.config.dictConfig(LOGGING_CONFIG)
