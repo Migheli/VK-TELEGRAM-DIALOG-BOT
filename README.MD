@@ -10,6 +10,18 @@ pip install -r requirements.txt
 ```
 
 ### Перед запуском 
+
+##### Переменные окружения и их настройка
+В проекте будут использованы следующие переменные окружения:  
+`DIALOG_FLOW_PROJECT_ID`  
+`LANGUAGE_CODE`  
+`GOOGLE_APPLICATION_CREDENTIALS`  
+`TG_BOT_TOKEN`  
+`SESSION_ID`  
+`VK_GROUP_ACCESS_KEY`  
+Данные переменные должны быть прописаны в файле с именем `.env`, лежащим в корневом каталоге проекта.
+Подробнее о том, какие значения присвоить каждой из них в инструкции далее.
+##### Перед запуском нам понадобится следующее.
 ##### 1. Группа Вконтакте, в которой будет использоваться Ваш Вконтакте-бот.
 
 Разрешаем боту отправку сообщений:
@@ -41,8 +53,8 @@ SESSION_ID='YOUR_TELEGRAM_CHAT_ID'
 ##### 5. Создайте аккаунт в Dialogflow: https://dialogflow.cloud.google.com/#/login
 Особое внимание обратите на раздел:
 'Use the service account key file in your environment'
-Путь до созданного файла укажите в переменной GOOGLE_APPLICATION_CREDENTIALS
-`` файла `.env` проекта:
+Путь до созданного файла укажите в переменной `GOOGLE_APPLICATION_CREDENTIALS` 
+файла `.env` проекта:
 ```
 GOOGLE_APPLICATION_CREDENTIALS='PATH_TO_YOUR_CREDENTIALS_JSON_FILE'
 ```
