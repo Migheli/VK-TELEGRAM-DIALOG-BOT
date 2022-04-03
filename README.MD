@@ -127,3 +127,7 @@ https://t.me/game_of_verbs_dvmn_bot
 https://stackoverflow.com/questions/47446480/how-to-use-google-api-credentials-json-on-heroku
 и использовать актуальный билдпак, размещенный по адресу:
 https://github.com/gerywahyunugraha/heroku-google-application-credentials-buildpack
+
+### Цель проекта
+
+Код написан в образовательных целях на онлайн-курсе для веб-разработчиков dvmn.org.
