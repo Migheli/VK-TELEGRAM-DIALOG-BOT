@@ -17,10 +17,10 @@ def start(update: Update, context: CallbackContext):
 def dialogflow_conversation(update: Update, context: CallbackContext):
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text=detect_intent_texts(os.getenv('DIALOG_FLOW_PROJECT_ID'),
-                                                         os.getenv('SESSION_ID'),
-                                                         update.message.text,
-                                                         os.getenv('LANGUAGE_CODE')
-                                                         )
+                                                      os.getenv('SESSION_ID'),
+                                                      update.message.text,
+                                                      os.getenv('LANGUAGE_CODE')
+                                                      )
                              )
 
 
