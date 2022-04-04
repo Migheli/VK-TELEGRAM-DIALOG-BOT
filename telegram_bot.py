@@ -1,5 +1,3 @@
-# -*- coding: cp1251 -*-
-
 import os
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext, Filters, MessageHandler, Updater
@@ -13,7 +11,7 @@ logger = logging.getLogger('telegram_logger')
 
 def start(update: Update, context: CallbackContext):
     context.bot.send_message(chat_id=update.effective_chat.id,
-                             text='Приветствую тебя, человек!')
+                             text='Р С‚РµР±Рµ РїСЂРёРІРµС‚, С‡РµР»РѕРІРµРє')
 
 
 def dialogflow_conversation(update: Update, context: CallbackContext):
@@ -31,7 +29,7 @@ def main():
         try:
             updater = Updater(token=os.getenv('TG_BOT_TOKEN'))
             dispatcher = updater.dispatcher
-            logger.debug('Бот в Telegram успешно запущен')
+            logger.debug('Р‘РѕС‚ РІ РўРµР»РµРіСЂР°Рј СѓСЃРїРµС€РЅРѕ Р·Р°РїСѓС‰РµРЅ')
             dispatcher.add_handler(CommandHandler('start', start))
             dispatcher.add_handler(MessageHandler(Filters.text &
                                                   (~Filters.command),
@@ -41,10 +39,11 @@ def main():
             updater.idle()
 
         except Exception as err:
-            logger.error('Бот в Telegram упал со следующей ошибкой:')
+            logger.error('Р‘РѕС‚ РІ РўРµР»РµРіСЂР°Рј СѓРїР°Р» СЃРѕ СЃР»РµРґСѓСЋС‰РµР№ РѕС€РёР±РєРѕР№:')
             logger.exception(err)
 
 
 if __name__ == "__main__":
     logging.config.dictConfig(LOGGING_CONFIG)
     main()
+    
