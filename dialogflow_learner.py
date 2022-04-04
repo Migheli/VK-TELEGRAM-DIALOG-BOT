@@ -24,7 +24,6 @@ def create_intent(project_id,
     message = dialogflow.Intent.Message(text=text)
     messages = [message]
 
-
     intent = dialogflow.Intent(
         display_name=display_name,
         training_phrases=training_phrases,
