@@ -4,7 +4,6 @@ import json
 from log_settings import LOGGING_CONFIG
 import logging.config
 
-logging.config.dictConfig(LOGGING_CONFIG)
 logger = logging.getLogger('stream_logger')
 
 
@@ -23,8 +22,8 @@ def create_intent(project_id,
 
     text = dialogflow.Intent.Message.Text(text=message_texts)
     message = dialogflow.Intent.Message(text=text)
-    messages = []
-    messages.append(message)
+    messages = [message]
+
 
     intent = dialogflow.Intent(
         display_name=display_name,
@@ -42,19 +41,18 @@ def create_intent(project_id,
 def main():
     project_id = os.getenv('DIALOG_FLOW_PROJECT_ID')
     with open('training_phrases.json', 'r') as training_phrases:
-        training_phrases_dict = json.load(training_phrases)
+        training_phrases_data = json.load(training_phrases)
 
-    for key in training_phrases_dict:
-        display_name = key
-        phrase = training_phrases_dict[key]
-        training_phrases_parts,  = phrase['questions']
-        message_texts = [phrase['answer']]
+    for phrase_name, phrase_content in training_phrases_data.items():
+        training_phrases_parts = phrase_content['questions']
+        message_texts = phrase_content['answer']
         create_intent(project_id,
-                      display_name,
+                      phrase_name,
                       training_phrases_parts,
                       message_texts
                       )
 
 
 if __name__ == '__main__':
+    logging.config.dictConfig(LOGGING_CONFIG)
     main()

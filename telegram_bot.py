@@ -5,10 +5,9 @@ from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext, Filters, MessageHandler, Updater
 import logging.config
 from log_settings import LOGGING_CONFIG
-from intents_detecters import detect_intent_texts_tg
+from intents_detecters import detect_intent_texts
 
 
-logging.config.dictConfig(LOGGING_CONFIG)
 logger = logging.getLogger('telegram_logger')
 
 
@@ -19,7 +18,7 @@ def start(update: Update, context: CallbackContext):
 
 def dialogflow_conversation(update: Update, context: CallbackContext):
     context.bot.send_message(chat_id=update.effective_chat.id,
-                             text=detect_intent_texts_tg(os.getenv('DIALOG_FLOW_PROJECT_ID'),
+                             text=detect_intent_texts(os.getenv('DIALOG_FLOW_PROJECT_ID'),
                                                          os.getenv('SESSION_ID'),
                                                          update.message.text,
                                                          os.getenv('LANGUAGE_CODE')
@@ -47,4 +46,5 @@ def main():
 
 
 if __name__ == "__main__":
+    logging.config.dictConfig(LOGGING_CONFIG)
     main()

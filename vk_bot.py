@@ -5,21 +5,16 @@ import random
 import vk_api as vk
 from vk_api.longpoll import VkLongPoll, VkEventType
 import logging.config
-from intents_detecters import detect_intent_texts_vk
+from intents_detecters import detect_intent_texts
 from log_settings import LOGGING_CONFIG
 
-
-logging.config.dictConfig(LOGGING_CONFIG)
 logger = logging.getLogger('telegram_logger')
 
 
 def dialogflow_conversation(event, vk_api):
 
-    event_txt = detect_intent_texts_vk(os.getenv('DIALOG_FLOW_PROJECT_ID'),
-                                       os.getenv('SESSION_ID'),
-                                       event.text,
-                                       os.getenv('LANGUAGE_CODE')
-                                       )
+    event_txt = detect_intent_texts(os.getenv('DIALOG_FLOW_PROJECT_ID'), os.getenv('SESSION_ID'), event.text,
+                                    os.getenv('LANGUAGE_CODE'), False)
 
     if event_txt:
 
@@ -48,4 +43,5 @@ def main():
 
 
 if __name__ == "__main__":
+    logging.config.dictConfig(LOGGING_CONFIG)
     main()
