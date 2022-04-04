@@ -40,4 +40,3 @@ LOGGING_CONFIG = {
         'disable_existing_loggers': False,
     }
 }
-
