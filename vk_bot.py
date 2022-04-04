@@ -1,5 +1,3 @@
-# -*- coding: cp1251 -*-
-
 import os
 import random
 import vk_api as vk
@@ -30,7 +28,7 @@ def main():
         try:
             vk_group_access_key = os.getenv('VK_GROUP_ACCESS_KEY')
             vk_session = vk.VkApi(token=vk_group_access_key)
-            logger.debug('Бот Вконтакте успешно запущен')
+            logger.debug('Р‘РѕС‚ Р’РєРѕРЅС‚Р°РєС‚Рµ СѓСЃРїРµС€РЅРѕ Р·Р°РїСѓС‰РµРЅ')
             vk_api = vk_session.get_api()
             longpoll = VkLongPoll(vk_session)
             for event in longpoll.listen():
@@ -38,7 +36,7 @@ def main():
                     dialogflow_conversation(event, vk_api)
 
         except Exception as err:
-            logger.error('Бот Вконтакте упал со следующей ошибкой:')
+            logger.error('Р‘РѕС‚ Р’РєРѕРЅС‚Р°РєС‚Рµ СѓРїР°Р» СЃРѕ СЃР»РµРґСѓСЋС‰РµР№ РѕС€РёР±РєРѕР№:')
             logger.exception(err)
 
 
