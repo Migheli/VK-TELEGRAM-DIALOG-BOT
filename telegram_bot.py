@@ -46,4 +46,3 @@ def main():
 if __name__ == "__main__":
     logging.config.dictConfig(LOGGING_CONFIG)
     main()
-    
