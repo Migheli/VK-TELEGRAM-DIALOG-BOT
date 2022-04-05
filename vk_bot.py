@@ -19,11 +19,11 @@ def dialogflow_conversation(event, vk_api):
 
     if not event_txt.query_result.intent.is_fallback:
 
-            vk_api.messages.send(
-            user_id=event.user_id,
-            message=event_txt.query_result.fulfillment_text,
-            random_id=random.randint(1, 1000)
-        )
+        vk_api.messages.send(
+                            user_id=event.user_id,
+                            message=event_txt.query_result.fulfillment_text,
+                            random_id=random.randint(1, 1000)
+                             )
 
 
 def main():
