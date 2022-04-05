@@ -1,5 +1,5 @@
 from google.cloud import dialogflow
-import logging.config
+import logging
 
 logger = logging.getLogger('stream_logger')
 
