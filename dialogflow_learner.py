@@ -38,6 +38,7 @@ def create_intent(project_id,
 
 
 def main():
+    logging.config.dictConfig(LOGGING_CONFIG)
     project_id = os.getenv('DIALOG_FLOW_PROJECT_ID')
     with open('training_phrases.json', 'r') as training_phrases:
         training_phrases_data = json.load(training_phrases)
@@ -53,5 +54,4 @@ def main():
 
 
 if __name__ == '__main__':
-    logging.config.dictConfig(LOGGING_CONFIG)
     main()

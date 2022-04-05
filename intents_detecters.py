@@ -1,12 +1,10 @@
 from google.cloud import dialogflow
-from log_settings import LOGGING_CONFIG
 import logging.config
 
 logger = logging.getLogger('stream_logger')
-logging.config.dictConfig(LOGGING_CONFIG)
 
 
-def detect_intent_texts(project_id, session_id, text, language_code, is_always_response=True):
+def detect_intent_texts(project_id, session_id, text, language_code):
 
     session_client = dialogflow.SessionsClient()
     session = session_client.session_path(project_id, session_id)
@@ -30,8 +28,4 @@ def detect_intent_texts(project_id, session_id, text, language_code, is_always_r
     )
     logger.debug('Fulfillment text: {}\n'.format(response.query_result.fulfillment_text))
 
-    if is_always_response:
-        return response.query_result.fulfillment_text
-    else:
-        if not response.query_result.intent.is_fallback:
-            return response.query_result.fulfillment_text
+    return response

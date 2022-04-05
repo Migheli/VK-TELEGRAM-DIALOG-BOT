@@ -11,7 +11,7 @@ logger = logging.getLogger('telegram_logger')
 
 def start(update: Update, context: CallbackContext):
     context.bot.send_message(chat_id=update.effective_chat.id,
-                             text='И тебе привет, человек')
+                             text='Приветствую тебя, человек!')
 
 
 def dialogflow_conversation(update: Update, context: CallbackContext):
@@ -20,16 +20,17 @@ def dialogflow_conversation(update: Update, context: CallbackContext):
                                                       os.getenv('SESSION_ID'),
                                                       update.message.text,
                                                       os.getenv('LANGUAGE_CODE')
-                                                      )
+                                                      ).query_result.fulfillment_text
                              )
 
 
 def main():
+    logging.config.dictConfig(LOGGING_CONFIG)
     while True:
         try:
             updater = Updater(token=os.getenv('TG_BOT_TOKEN'))
             dispatcher = updater.dispatcher
-            logger.debug('Бот в Телеграм успешно запущен')
+            logger.debug('Бот в Telegram успешно запущен')
             dispatcher.add_handler(CommandHandler('start', start))
             dispatcher.add_handler(MessageHandler(Filters.text &
                                                   (~Filters.command),
@@ -39,10 +40,9 @@ def main():
             updater.idle()
 
         except Exception as err:
-            logger.error('Бот в Телеграм упал со следующей ошибкой:')
+            logger.error('Бот в Telegram упал со следующей ошибкой:')
             logger.exception(err)
 
 
 if __name__ == "__main__":
-    logging.config.dictConfig(LOGGING_CONFIG)
     main()
